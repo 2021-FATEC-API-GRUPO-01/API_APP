@@ -3,6 +3,7 @@
     src: url(/static/fonts/Quicksand-VariableFont_wght.ttf);
     
 }
+@import "transition-style";
 
 body{
     font-family: Quicksand;
@@ -17,7 +18,30 @@ p{
     font-weight: 900;
 }
 
+.olar{
+    width: 80% !important;
+    transition: width 2s;
+    background: rgb(54, 46, 46);
+    color:rgb(255, 248, 248);
+}
 
+.olar:hover{
+
+    width: 100% !important;
+    
+}
+.olar2{
+    width: 80% !important;
+    transition: width 2s;
+    background: rgb(88, 52, 52);
+    color:rgb(255, 248, 248);
+}
+
+.olar2:hover{
+
+    width: 100% !important;
+    
+}
 
 .navi{
 
@@ -151,11 +175,11 @@ footer{
     margin-top: 50px;
     height: 300px;
     font-family: Quicksand;
+    
 
 }
-.lipe{
-    Background: url("../img/teste1.jpg") 50% 50% no-repeat;
-    background-size: cover;
+.login{
+    margin-top: 100px ;
 }
 .sb2{
 
@@ -168,20 +192,20 @@ footer{
 }
 
 .ad1{
-    color:#969696 !important;
-    font-size: x-large;
+    color:#030303 !important;
+
     font-weight: 500;
 }
 .ad1:hover { 
     background-color:rgba(0, 0, 0, 0.5)!important;
-    color:rgb(255,255,255) !important;
+    color:rgb(255, 255, 255) !important;
 
     
     } 
 
 .ad2:hover { 
         background-color:rgb(255,255,255,0.5)!important;
-        color:#969696 !important;
+        color:#000000 !important;
 
         }
 

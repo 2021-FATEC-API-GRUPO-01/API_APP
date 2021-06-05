@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+    <div class="flashes ">
+    {% for message in messages %}
+    <div class="text-center  container-fluid col-12"style="; background-color: ; width:300px; ">{{ message }}</div>
+    {% endfor %}
+    </div>
+{% endif %}
+{% endwith %}
+
+<div class="text-center container-fluid mt-5">
+    <p class="text-center">
+    Recomendação id produto: {{teste4}}
+    </p>
+    <p class="text-center">
+    Nome produto: {{teste5.name}}
+    </p>
+    <h4 class="text-center">
+    {{a}}
+    </h4>
+    <a class='btn btn-secondary'href='/csv/{{n}}'>Voltar</a>
+</div>
+
+{% endblock %}

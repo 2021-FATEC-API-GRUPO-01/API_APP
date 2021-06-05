@@ -3,7 +3,7 @@ DEBUG = True
 port = 4000
 
 
-SQLALCHEMY_DATABASE_URI = "postgresql+psycopg2://postgres:123@localhost:5432/spc"
+SQLALCHEMY_DATABASE_URI = "postgresql+psycopg2://postgres:postgres@localhost:5432/spc"
 
 SQLALCHEMY_TRACK_MODIFICATIONS = True
 FLASK_ADMIN_SWATCH = 'cerulean'

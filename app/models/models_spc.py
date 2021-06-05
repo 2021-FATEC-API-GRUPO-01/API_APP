@@ -21,6 +21,15 @@ class Spc_Raw_Data(db.Model):
     latitude = db.Column(db.String(255), nullable=True)
     longitude = db.Column(db.String(255),  nullable=True)
     
+class Save_data(db.Model):
+    __tablename__ = "save_data"
+
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer , db.ForeignKey('users.id'),  nullable=False)
+    product_id = db.Column(UUID(as_uuid=True), db.ForeignKey('products.id'),  nullable=True)
+    costumer_id = db.Column(UUID(as_uuid=True), db.ForeignKey('customers.id'),  nullable=True)
+
+
 class Customers(db.Model):
     __tablename__ = "customers"
 
@@ -33,6 +42,7 @@ class Customers(db.Model):
     avg_income = db.Column(db.Numeric, nullable=True)
     spc_raw_data_id = db.Column(UUID(as_uuid=True), db.ForeignKey('spc_raw_data.id'),  nullable=True)
     relation = db.relationship(Spc_Raw_Data, backref=backref("customers", uselist=False))
+    relation2 = db.relationship(Save_data, backref=backref("customers", uselist=False))
 
 class Products(db.Model):
     __tablename__ = "products"
@@ -40,6 +50,7 @@ class Products(db.Model):
     id = db.Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     name = db.Column(db.String(255))
     category = db.Column(db.String(255))
+    relation2 = db.relationship(Save_data, backref=backref("products", uselist=False))
 
 class Customers_Products(db.Model):
     __tablename__ = "customers_products"
@@ -103,10 +114,32 @@ class Schema_Migrations(db.Model):
 
 
 
+class Users(db.Model, UserMixin):
+    __tablename__ = "users"
+
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(60), unique=True)
+    password = db.Column(db.String(60))
 
 
- 
 
 
+    @property
+    def is_authenticated(self):
+        return True
+    @property
+    def is_active(self):
+        return True
+    @property
+    def is_anonymous(self):
+        return False
+    def get_id(self):
+        return str(self.id)
 
+class Csvdata(db.Model):
+    __tablename__ = "csvdata"
+
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100))
+    path = db.Column(db.String(200))
 

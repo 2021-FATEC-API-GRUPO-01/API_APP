@@ -12,35 +12,50 @@
     <link rel = "stylesheet"  href="{{ url_for('static', filename='css/custom.css')}}"/>
     <link rel = "stylesheet"  href="{{ url_for('static', filename= 'css/all.css' ) }}"/>
     <link rel = "stylesheet"  href="{{ url_for('static', filename='css/animate.css')}}"/>
-   
+    <link rel="stylesheet" href="https://unpkg.com/transition-style">
+    <link rel="stylesheet" href="https://unpkg.com/transition-style/transition.hackpack.min.css">
+    
     <title>Api Analytics</title>
   </head>
   <body>
-    <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">Api Analytics</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <nav class="navbar sticky-top  wow fadeInLeft navbar-expand-lg navbar-light bgcolor" style="padding-bottom:20px; background-color:;">
+      <div class ="logo1 text-center  logo1" style="background-color:">
+         <p class ="logo font-weight-bolder bgcolor0 " id="teste"> Api Analytics</p>
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="/">Sobre o projeto</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/api">Recomendações</a>
-            </li>
-          </ul>
-        </div>
+     <div class="collapse navbar-collapse ms-5 mt-2" id="navbarNav" style="">
+      <div class="navbar-nav">
+          <a class="nav-link text-dark text-center bgcolor1 act" id="teste1" style = " background-color: #fffff;"  href="/" >Inicio</a>
+
+           {% if current_user.is_authenticated %}
+           {% if current_user.id == 0 %}
+           <a class="nav-link text-center text-dark bgcolor1 act" id="teste3" style = " background-color: ;"  href="/adm/manager">Adm</a>
+           <a class="nav-link text-center text-dark bgcolor1 act" id="teste3" style = " background-color: ;"  href="/api">Analises </a>
+           <a class="nav-link text-center text-dark bgcolor1 act" id="teste3" style = " background-color: ;"  href="/dados">Dados salvos</a>
+           <a class="nav-link text-center text-dark bgcolor1 act" id="teste3" style = " background-color: ;"  href="/select">Csv</a>
+           <a class="nav-link text-center text-dark bgcolor1 act" id="teste3" style = " background-color: ;"  href="/logout">Deslogar</a>
+           {% else %}
+           <a class="nav-link text-center text-dark bgcolor1 act" id="teste3" style = " background-color: ;"  href="/api">Analises</a>
+           <a class="nav-link text-center text-dark bgcolor1 act" id="teste3" style = " background-color: ;"  href="/dados">Dados salvos </a>
+           <a class="nav-link text-center text-dark bgcolor1 act" id="teste3" style = " background-color: ;"  href="/select">Csv</a>
+           <a class="nav-link text-center text-dark bgcolor1 act" id="teste3" style = " background-color: ;"  href="/logout">Deslogar </a>
+           {% endif %}
+           {% else %}
+           <a class="nav-link text-end text-dark bgcolor1 act" id="teste3" style = " background-color: ;"  href="/login"> Login</a>
+           {% endif %}
       </div>
-    </nav>
+      
+    </div>
+   </nav>
   {% block content %}
   {% endblock %}
 
     <script
   src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
   integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
-  crossorigin="anonymous"></script>
+  crossorigin="anonymous"> import 'transition-style';</script>
 
     <script src="{{url_for('static', filename= 'js/wow.min.js')}}"></script>
     <script>
@@ -51,6 +66,8 @@
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
     
-    
+    <script>
+     
+    </script>
  </body>
 </html>
