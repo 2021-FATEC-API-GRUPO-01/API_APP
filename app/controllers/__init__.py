@@ -62,11 +62,13 @@ def savecsv(file):
 
 #rota escolher arquivo
 @app.route('/select')
+@login_required
 def select():
     return render_template('select.html')
     
 #rota mostrar dados csv
 @app.route('/uploadcsv', methods=['GET','POST'])
+@login_required
 def csv2():
     file =request.files['inputFile']
     t =savecsv(file)
@@ -77,6 +79,7 @@ def csv2():
     
 #rota mostrar dados csv
 @app.route('/csv/<t>', methods=['GET','POST'])
+@login_required
 def csv1(t):
     n = Csvdata.query.get_or_404(t)
     csv_path = os.path.join(app.root_path, 'static/storage', n.path )
@@ -112,7 +115,7 @@ def apicsv(id, csvid):
             teste3 =model.predict(teste2)
             teste4= untransform_product(teste3)
             teste5= Products.query.get_or_404(teste4)
-            a = [t[7], t[8], t[10], t[11]]
+            a = ['Estado: '+t[7],'Cidade: ' +t[8],'idade: ' +t[10],'customer_avg_income: ' +t[11]]
             a = ' '.join(a)
             return render_template('recomendacaocsv.html',n=n.id, a=a, csv_reader=csv_reader,teste4=teste4, teste5=teste5)
     return render_template('recomendacaocsv.html', n=n.id, a=a, csv_reader=csv_reader,teste4=teste4, teste5=teste5)   

@@ -49,7 +49,9 @@ p{
    
 
 }
-
+.im{
+    
+}
 nav {
     background-color: rgba(0, 0, 0, 0.5) !important;
     
@@ -192,7 +194,7 @@ footer{
 }
 
 .ad1{
-    color:#030303 !important;
+    color:#ffffff !important;
 
     font-weight: 500;
 }

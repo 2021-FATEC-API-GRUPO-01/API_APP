@@ -41,6 +41,7 @@ No psql execute o comando psql -U nome_usuario -d spc -f spc.sql
 Execute: python run.py db stamp head
 Execute: python run.py db migrate
 Execute: python run.py db upgrade
+Crie um usuário com id 0 na tabela users
 Execute: python run.py runserver
 Após isso navegue até o localhost pelo navegador na página index: http://localhost:5000
 

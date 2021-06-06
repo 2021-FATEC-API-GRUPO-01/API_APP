@@ -9,18 +9,22 @@
     </div>
 {% endif %}
 {% endwith %}
+<div class=" container-fluid text-center text-light w-75 p-3 mt-5 " style="">
+    <div class="card text-center " style="height: 350px; background-color: #212529;">
+        <h5 class="card-header border-bottom border-light" >Recomendação ID: {{teste4}}<p>Nome produto: {{teste5.name}}</p></h5>
+        
+        <div class="card-body text-start">
+            <div class="row">
+                <div class=" text-center col-12">
+                    <h4>{{a}}</h4>
+                </div>
+                <h5 class="card-text text-center mt-5">Esse produto foi recomendado para este cliente baseado nos nossos perfis de produtos e clientes</h5>
+            </div>
+        </div>
 
-<div class="text-center container-fluid mt-5">
-    <p class="text-center">
-    Recomendação id produto: {{teste4}}
-    </p>
-    <p class="text-center">
-    Nome produto: {{teste5.name}}
-    </p>
-    <h4 class="text-center">
-    {{a}}
-    </h4>
-    <a class='btn btn-secondary'href='/csv/{{n}}'>Voltar</a>
+            <a class="ad1 btn" style="background-color: ; color:#ffff;" type="button" href="/csv/{{n}}">voltar</a>
+
+    </div>
+    
 </div>
-
 {% endblock %}

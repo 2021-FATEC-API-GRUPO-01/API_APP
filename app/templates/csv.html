@@ -12,7 +12,11 @@
 
 <div class="container-fluid mt-5">
     {% for row in csv_reader%}
-    <div class="container-fluid">
+    {% if loop.index%2 == 0%}
+    <div class="container-fluid " style="background-color: rgb(224, 224, 224);">
+    {% else %}
+    <div class="container-fluid border-bottom" >
+    {% endif %}
         <p class="text-center">
         Estado: {{row[7]}} Cidade: {{row[8]}} Idade: {{row[10]}} avg_income: {{row[11]}} estado produto: {{row[14]}}
         <div class="container-fluid text-center">
