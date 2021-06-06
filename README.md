@@ -38,6 +38,7 @@ No psql execute o comando psql -U nome_usuario -d spc -f spc.sql
 ### Etapa final: 
 
 ```
+Execute: python run.py db upgrade
 Execute: python run.py runserver
 Após isso navegue até o localhost pelo navegador na página index: http://localhost:5000
 
